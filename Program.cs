@@ -23,7 +23,7 @@ string secret = Environment.GetEnvironmentVariable("CLIENT_SECRET")
     ?? throw new InvalidOperationException("CLIENT_SECRET environmental variable is not set");
 string requestUrlBase = "https://apix.cisco.com/software/suggestion/v2/suggestions/releases/productIds/";
 
-string productId = "ASR-903";
+string productId = "Cisco 2811";
 
 HttpClient client = new HttpClient();
 Authorize auth = new Authorize();

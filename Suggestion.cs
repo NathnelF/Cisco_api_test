@@ -17,18 +17,24 @@ public class SuggestionRequest {
 
         if (result != null)
         {
-            foreach (var product in result.ProductList)
+            foreach (var product in result.ProductList!)
             {
-                foreach (var suggestion in product.Suggestions)
+                foreach (var suggestion in product.Suggestions!)
                 {
-                    //Console.WriteLine($"Suggested Release: {suggestion.RelDispName} on {suggestion.ReleaseDate}");
-                    string version = suggestion.RelDispName;
-                    return version;
+                    string version = suggestion.RelDispName!;
+                    if (version == "")
+                    {
+                        return $"Can't find product with pid {productId}";
+                    } else
+                    {
+                        return version;
+                    }
+                    
                 }
             }
         }
 
-        return "";
+        return $"Can't find product with pid {productId}";
 
     }
 }

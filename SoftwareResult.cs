@@ -53,5 +53,4 @@ public class Suggestion
     [JsonPropertyName("relDispName")]
     public string? RelDispName { get; set; }
 
-    // Add more fields if needed...
 }
